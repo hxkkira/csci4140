@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSCI 4140: Assigment 2</title>
+<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/mycss.css">
+<script type="text/javascript" src="/js/front.js"></script>
+<script src="/socket.io/socket.io.js"></script> 
+<script>
+    var socket = io('ws://' + window.location.hostname + ':8000/'); 
+ </script>
+	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<div class="container">
+		<h3 class="text-left" style="color:#848484;"><body>CSCI 4140: Assigment2</h1>
+		<p class="text-right" id="qrcode"></p>
+	</br>
+	<h1 class="text-left"><body>YouTube Remote(<div class="visible-xs-inline">Mobile</div><div class="visible-sm-inline">Tablet</div><div class="visible-md-inline visible-lg-inline">Desktop</div>)</h1>
+	</hr>
+	<div class="row">
+	<!--=============================================-->
+	<div class="visible-md visible-lg"> 
+	<div class="col-lg-8 col-md-8">
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<p class="text-left">YouTube Player</p>
+		</div>
+		<div class="panel-body">
+			<div class="videoWrapper">
+			<div id="player"></div>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+	<!--=============================================-->
+	<div class="col-lg-3-inline col-lg-offset-9 col-md-3-inline col-md-offset-9 col-xs col-sm">
+	<div class="column">
+	<div class="panel panel-warning">
+			<div class="panel-heading">
+				<p class="text-left">YouTube Remote Control</p>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+						<div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
+							<button type="button" class="btn btn-success btn-block" id="play"><span class="glyphicon glyphicon-play" aria-hidden="true"></span><div class="visible-sm-inline">PLAY</div></button>
+						</div>
+						<div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
+							<button type="button" class="btn btn-danger btn-block" id="pause"><span class="glyphicon glyphicon-pause" aria-hidden="true"></span><div class="visible-sm-inline">PAUSE</div></button>
+						</div>
+						<div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
+							<button type="button" class="btn btn-warning btn-block" id="stop"><span class="glyphicon glyphicon-stop" aria-hidden="true"></span><div class="visible-sm-inline">STOP</div></button>
+						</div>
+						<div class="col-lg-3 col-md-3 col-xs-3 col-sm-3">
+							<button type="button" class="btn btn-primary btn-block" id="previous"><span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span><div class="visible-sm-inline">PREVIOUS</div></button>
+						</div>
+						<div class="col-lg-3 col-md-3 col-xs-3 col-sm-3">
+							<button type="button" class="btn btn-primary btn-block" id="rewind"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span><div class="visible-sm-inline">REWIND</div></button>
+						</div>
+						<div class="col-lg-3 col-md-3 col-xs-3 col-sm-3">
+							<button type="button" class="btn btn-info btn-block" id="forward"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span><div class="visible-sm-inline">FAST FORWARD</div></button>
+						</div>
+						<div class="col-lg-3 col-md-3 col-xs-3 col-sm-3">
+							<button type="button" class="btn btn-info btn-block" id="next"><span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span><div class="visible-sm-inline">NEXT</div></button>
+						</div>
+						<div class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
+							<button type="button" class="btn btn-warning btn-block" id="mute"><span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span><div class="visible-sm-inline">MUTE</div></button>
+						</div>
+						<div class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
+							<button type="button" class="btn btn-warning btn-block" id="unmute"><span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span><div class="visible-sm-inline">UNMUTE</div></button>
+						</div>
+				</div>
+			</div>	
+	</div>
+	</br></hr>
+	
+	<!--=============================================-->
+	<div class="panel panel-warning">
+			<div class="panel-heading">
+				<p class="text-left">Playlist</p>
+			</div>
+			<div class="panel-body">
+				<ul class="list-group" id="playlist">
+				</ul>
+				<form>
+					<div class="form-group">
+						<input type="text" class="form-control" id="ID" placeholder="Enter Video ID or URL">
+					</div>
+					<button type="button" class="btn btn-warning btn-block" id="addID" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+					<button type="button" class="btn btn-default btn-block" id="clearList">Clear All</button>
+				</form>
+			</div>
+    </div>
+	<!--=============================================-->
+	</div>
+	</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

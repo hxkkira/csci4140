@@ -308,7 +308,7 @@ function receiveCommand(command){
 		case 'mute':
 			mute();
 			break;
-		case 'unMute':
+		case 'unmute':
 			unmute();
 			break;
 		case 'rewind':

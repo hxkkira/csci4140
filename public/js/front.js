@@ -91,7 +91,6 @@ function displayPlaylist(){
 function playVideoByID(object){
 	
 	var targetID = object.id;
-	//alert(targetID);
 	socket.emit('playVideo',sessionID,targetID);
 
 }
@@ -148,8 +147,6 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady( event ) {
-//do nothing
-//event.target.playVideo();
 }
 
 var done = false;
@@ -436,6 +433,7 @@ function addLoadEvent(func) {
   }
 }
 //=======================================
+addLoadEvent(onYouTubeIframeAPIReady);
 addLoadEvent(addQRCode);
 addLoadEvent(addControl);
 addLoadEvent(addSocketListener);

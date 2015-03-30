@@ -91,6 +91,7 @@ function displayPlaylist(){
 function playVideoByID(object){
 	
 	var targetID = object.id;
+	//alert(targetID);
 	socket.emit('playVideo',sessionID,targetID);
 
 }
@@ -147,6 +148,8 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady( event ) {
+//do nothing
+//event.target.playVideo();
 }
 
 var done = false;
@@ -178,71 +181,57 @@ function playByID(object){
 //control functions
 //=======================================
 function play(){
-	if(player){
 	player.playVideo();
-	}
 };
 
 function pause(){
-	if(player){
 	player.pauseVideo(); 
-	}
 };
 
 function stop(){
-	if(player){
 	player.stopVideo();
 	player.loadVideoById(currentID);
 	player.stopVideo();
-	}
 };
 
 function mute(){
-	if(player){
 	player.mute();
-	}
 }
 
 function unmute(){
-	if(player){
 	player.unMute(); 
-	}
 }
 
 function rewind(){
-	if(player){
+
 	var currentTime = player.getCurrentTime();
 	player.seekTo( currentTime - 2.0 ); 
-	}
 
 }
 
 function forward(){
-	if(player){
+
 	var currentTime = player.getCurrentTime();
 	player.seekTo( currentTime + 2.0 ); 
-	}
 
 }
 
 function previous(){
-	if(player){
+
 	var currentIndex = IDList.indexOf(currentID);
 	if(currentIndex > 0){
 		currentID = IDList[currentIndex - 1];
 		player.loadVideoById(currentID);
 	}
-	}
 }
 
 function next(){
-	if(player){
+	
 	var currentIndex = IDList.indexOf(currentID);
 	if(currentIndex == -1 ){}
 	else if(currentIndex < IDList.length-1){
 		currentID = IDList[currentIndex + 1];
 		player.loadVideoById(currentID);
-	}
 	}
 }
 window.addEventListener( 'resize', function() {
@@ -260,7 +249,7 @@ window.addEventListener( 'resize', function() {
 			} );
 		}
 	} else {
-		player.destroy(); 
+		player.destroy(); // Destroy the video player
 		player = null;
 	}
 } )
@@ -433,7 +422,6 @@ function addLoadEvent(func) {
   }
 }
 //=======================================
-addLoadEvent(onYouTubeIframeAPIReady);
 addLoadEvent(addQRCode);
 addLoadEvent(addControl);
 addLoadEvent(addSocketListener);

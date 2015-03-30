@@ -263,9 +263,7 @@ window.addEventListener( 'resize', function() {
 			} );
 		}
 	} else {
-		if(player){
 		player.destroy(); 
-		}// Destroy the video player
 		player = null;
 	}
 } )
